@@ -1,0 +1,25 @@
+<nav class="mt-8">
+  <button class="main__menu__toggle"
+      aria-label="Menu modal toggle" 
+      aria-haspopup="true"
+      aria-controls="main-menu"
+      aria-expanded="false">
+      Toggle menu
+      <span class="menu__burger"></span>
+  </button>
+
+  <div class="main__menu" id="main-menu" aria-labelledby="main-menu">
+      <ul role="menu" class="site-nav">
+        {% for item in navigation.header %}
+        <li role="presentation">
+            <a href="{{ item.route }}" 
+               role="menuitem"
+               class="site-nav__link block {{ "ml-26" if not loop.first -}}"
+               {% if page.url == item.route %} aria-current="page"{% endif %}>
+                {{ item.name -}}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include 'parts/head.njk' %}
+  <body class="{{ 'debug-screens' if env.devMode }}">
+    {% include 'parts/header.njk' %}
+
+    {% block hero %}{% endblock %}
+
+    {% block body %}{% endblock %}
+
+    {% block outro %}{% endblock %}
+
+    {% include 'parts/footer.njk' %}
+    {% include 'parts/script.njk' %}
+    {% block script %}{% endblock %}
+  </body>
+</html>

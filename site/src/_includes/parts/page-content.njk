@@ -1,0 +1,22 @@
+
+{% for item in page_content %}
+    {% if item.template === 'content-header' %}
+        {% from 'macros/content-header.njk' import contentHeader %}
+        {{ contentHeader(
+            sectionHeader=item.section_header
+        ) }}
+    {% elseif item.template === 'content-copy' %}
+        {% from 'macros/content-copy.njk' import contentCopy %}
+        {{ contentCopy(
+            pageCopy=item.page_copy
+        ) }}
+    {% elseif item.template === 'content-image' %}
+        {% from 'macros/content-image.njk' import contentImage %}
+        {{ contentImage(
+            pageImage=item.page_image,
+            pageImageAlt=item.page_image_alt,
+            pageImageSize=item.page_image_size,
+            imageData=imageData
+        ) }}
+    {% endif %}
+{% endfor %}

@@ -1,0 +1,24 @@
+---
+---
+
+{% extends 'base.njk' %}
+
+{% from 'macros/page-hero.njk' import hero %}
+{% block hero %}
+  {{ hero(
+    heroTitle=page_hero.hero_title,
+    heroContent=page_hero.hero_content,
+    heroImage=page_hero.hero_image,
+    heroAlt=page_hero.hero_alt,
+    imageData=imageData
+  ) }}
+{% endblock %}
+
+{% block body %}
+  <div class="container p-8 c-rich-text">
+    {% include 'parts/page-content.njk' %}
+  </div>
+{% endblock %}
+
+{% block outro %}
+{% endblock %}

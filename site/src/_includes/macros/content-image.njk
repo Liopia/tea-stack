@@ -1,0 +1,15 @@
+{% macro contentImage(pageImage, pageImageAlt, pageImageSize, imageData) %}
+
+    {% if pageImageSize == '800' %}
+        {% set imageSize = 800 %}
+    {% else %}
+        {% set imageSize = 960 %}
+    {% endif %}
+
+    {% set imageCrop = '/w_' + imageSize + ',' + imageData.auto_quality %}
+
+    <div class="max-w-{{ imageSize }}">
+        <img src="{{ imageData.cloudinary }}{{ imageCrop }}{{ pageImage }}" alt="{{ pageImageAlt }}" class="block">
+    </div>
+
+{% endmacro %}

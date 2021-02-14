@@ -1,0 +1,27 @@
+{% macro hero(heroTitle, heroContent, heroImage, heroAlt, imageData) %}
+
+  <div class="page-hero relative">
+
+    {% if heroImage|length %}
+      <picture class="page-hero__picture relative">
+          <source class="page-hero__image absolute top-0 left-0 object-cover object-center" srcset="{{imageData.cloudinary}}/w_640,{{imageData.auto_quality}}{{heroImage}}" media="(max-width: 640px)">
+          <source class="page-hero__image absolute top-0 left-0 object-cover object-center" srcset="{{imageData.cloudinary}}/w_960,{{imageData.auto_quality}}{{heroImage}}" media="(max-width: 960px)">
+          <source class="page-hero__image absolute top-0 left-0 object-cover object-center" srcset="{{imageData.cloudinary}}/w_1280,{{imageData.auto_quality}}{{heroImage}}" media="(max-width: 1280px)">
+          <source class="page-hero__image absolute top-0 left-0 object-cover object-center" srcset="{{imageData.cloudinary}}/w_1600,{{imageData.auto_quality}}{{heroImage}}" media="(max-width: 1600px)">
+          <source class="page-hero__image absolute top-0 left-0 object-cover object-center" srcset="{{imageData.cloudinary}}/w_1920,{{imageData.auto_quality}}{{heroImage}}" media="(min-width: 1601px)">
+          <img class="page-hero__image absolute top-0 left-0 object-cover object-center" src="{{imageData.cloudinary}}/w_640,{{imageData.auto_quality}}{{heroImage}}" alt="{{ heroAlt }}">
+      </picture>
+    {% else %}
+      <div class="mb-20"></div>
+    {% endif %}
+
+    <div class="container">
+        <h1>{{ heroTitle }}</h1>
+        {% if heroContent %}
+            <p>{{ heroContent }}</p>
+        {% endif %}
+    </div>
+
+  </div>
+
+{% endmacro %}
