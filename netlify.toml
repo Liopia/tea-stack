@@ -1,0 +1,41 @@
+# Netlify Default Build
+
+[build]
+  command = "npm ci && npm run build"
+  base    = "site/"
+  publish = "dist/"
+
+# Netlify Post processing actions off by default
+
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = false
+  minify = false
+
+[build.processing.js]
+  bundle = false
+  minify = false
+
+[build.processing.html]
+  pretty_urls = false
+
+[build.processing.images]
+  compress = false
+
+# Netlify Production Build
+
+#[build.production]
+#  command = ""
+
+[context.production.processing.images]
+  compress = true
+
+# Netlify Redirects
+
+#[[redirects]]
+#  from = "https://xxx.netlify.app"
+#  to = "https://www.xxx.com"
+#  status = 301
+#  force = true
