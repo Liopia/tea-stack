@@ -1,0 +1,43 @@
+---
+label: Partial - Hero
+hide_body: true
+fields:
+- name: page_hero
+  type: field_group
+  config: {}
+  fields:
+  - name: hero_image
+    type: file
+    config:
+      maxSize: '15'
+    label: Hero Image
+  - name: hero_alt
+    type: text
+    config:
+      required: false
+    label: Hero Alt
+  - name: hero_title
+    type: text
+    config:
+      required: false
+    label: Hero Title
+  - name: hero_content
+    type: textarea
+    config:
+      required: false
+    label: Hero Content
+  - name: hero_color_scheme
+    type: select
+    default: []
+    config:
+      required: false
+      options:
+      - dark background
+      - light background
+      source:
+        type: simple
+        section: 
+        file: 
+        path: 
+    label: Color Scheme
+  label: Page Hero

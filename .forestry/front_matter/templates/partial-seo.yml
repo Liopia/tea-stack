@@ -1,0 +1,13 @@
+---
+label: Partial - SEO
+hide_body: true
+fields:
+- name: meta_description
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Meta Description

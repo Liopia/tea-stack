@@ -1,0 +1,38 @@
+---
+label: Page - Default
+hide_body: true
+display_field: title
+fields:
+- name: title
+  type: text
+  config:
+    required: true
+  label: Page Title
+- name: layout
+  type: text
+  config:
+    required: true
+  label: Layout
+  default: layouts/page.njk
+  hidden: true
+- name: seo
+  type: include
+  config: {}
+  template: partial-seo
+  label: SEO
+- name: hero
+  type: include
+  config: {}
+  template: partial-hero
+  label: Hero
+- name: page_content
+  type: blocks
+  template_types:
+  - content-header
+  - content-copy
+  - content-image
+  config:
+    min: 
+    max: 
+  label: Page Content
+  description: Main page content parts

@@ -1,0 +1,14 @@
+---
+label: Content - Copy
+hide_body: true
+display_field: page_copy
+fields:
+- name: page_copy
+  type: textarea
+  default: ''
+  config:
+    required: true
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Page Copy

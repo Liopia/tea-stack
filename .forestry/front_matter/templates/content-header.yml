@@ -1,0 +1,10 @@
+---
+label: Content - Header
+hide_body: true
+display_field: section_header
+fields:
+- name: section_header
+  type: text
+  config:
+    required: true
+  label: Section Header

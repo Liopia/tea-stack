@@ -1,0 +1,16 @@
+---
+label: Partial - Image
+hide_body: true
+display_field: page_image_alt
+fields:
+- name: page_image
+  type: file
+  config:
+    maxSize: '15'
+  label: Page Image
+- name: page_image_alt
+  type: text
+  config:
+    required: true
+  label: Image Alt
+  description: All images must have a description to conform with accessibility regulations
