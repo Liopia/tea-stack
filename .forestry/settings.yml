@@ -12,7 +12,7 @@ sections:
   new_doc_ext: md
   templates:
   - page-default
-upload_dir: images
+upload_dir: 
 public_path: https://res.cloudinary.com/______/image/upload
 front_matter_path: ''
 use_front_matter_path: true
