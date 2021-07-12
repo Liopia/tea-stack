@@ -1,0 +1,16 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {%- for item in collections.all %}
+
+        {%- if item.data.robots_noindex != true %}
+        <url>
+            <loc>https://www.taketwofoods.com{{ item.url }}</loc>
+            <lastmod>{{ item.date | date }}</lastmod>
+        </url>
+        {%- endif %}
+
+    {%- endfor %}
+</urlset>

@@ -40,6 +40,11 @@ module.exports = (config) => {
     return markdown.render(value);
   });
 
+  // add nunjucks date filter for sitemap
+  var dateFilter = require('nunjucks-date');
+  dateFilter.setDefaultFormat('YYYY-MM-DD');
+  config.addFilter('date', dateFilter);
+
   return {
     dir: {
       input: 'src',
