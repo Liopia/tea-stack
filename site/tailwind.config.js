@@ -4,11 +4,11 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: '2rem',
+      padding: '1.5rem',
     },
-    extend: {},
-  },
-  variants: {
+    debugScreens: {
+      position: ['bottom', 'right'],
+    },
     extend: {},
   },
   plugins: [
@@ -16,9 +16,5 @@ module.exports = {
     require('@tailwindcss/typography'),
     require('tailwindcss-debug-screens'),
   ],
-  purge: [
-    './src/**/*.js',
-    './src/**/*.njk',
-    './src/**/*.svg',
-  ],
+  purge: ['./src/**/*.{js,md,njk,svg}'],
 }
