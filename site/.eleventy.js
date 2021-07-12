@@ -27,6 +27,12 @@ module.exports = (config) => {
   });
   */
 
+  // limit filter
+  // use like: {% set postslist = collections.blog | limit(3) %}
+  config.addFilter("limit", function(array, limit) {
+    return array.slice(0, limit);
+  });
+
   config.addFilter('markdown', function(value) {
     let markdown = require('markdown-it')({
         html: true
