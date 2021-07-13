@@ -4,6 +4,11 @@
   <link rel="stylesheet" href="/assets/main.bundle.css">
   <script src="/assets/main.bundle.js" defer></script>
   <title>{{ title }} | TEA Stack</title>
+
+  {%- if meta_description %}
+  <meta name="description" content="{{ meta_description }}">
+  {% endif -%}
+
   {% include 'parts/favicon.njk' %}
   {% block head %}{% endblock %}
 </head>
