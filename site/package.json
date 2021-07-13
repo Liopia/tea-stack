@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
+    "@tailwindcss/aspect-ratio": "^0.2.1",
     "@tailwindcss/forms": "^0.2.1",
     "@tailwindcss/typography": "^0.4.1",
     "cross-env": "^6.0.3",
