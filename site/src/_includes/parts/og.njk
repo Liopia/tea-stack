@@ -1,0 +1,12 @@
+{%- if page_hero.image %}
+    {%- set image_path = page_hero.image %}
+{%- elif image %}
+    {%- set image_path = image %}
+{%- endif %}
+    <meta property="og:title" content="{{ meta_title if meta_title else title }}"/>
+    <meta property="og:url" content="{{ page.url }}" />
+    <meta property="og:description" content="{{ meta_description }}" />
+    {%- if image_path%}
+    <meta property="og:image" content="{{ imageData.cloudinary }}/w_1200,f_auto/{{ image_path }}" />
+    {% endif -%}
+    <meta property="og:type" content="article" />
