@@ -5,34 +5,51 @@
   :class="{ '-lg:shadow-lg' : $store.nav.isOpen, '' : !$store.nav.isOpen}"
   :aria-expanded="$store.nav.isOpen.toString()">
 
-  <button class="main-menu__toggle"
+  <button class="main-menu__toggle lg:hidden"
       @click="$store.nav.toggle()"
       :class="{ 'main-menu__toggle--open': $store.nav.isOpen }"
       :aria-expanded="$store.nav.isOpen.toString()"
       aria-label="Menu modal toggle" 
       aria-haspopup="true"
       aria-controls="main-menu">
-      Toggle menu
-      <span class="menu__burger"></span>
+    <svg
+      class="h-6 w-6 fill-current"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+    >
+      <path
+        x-show="$store.nav.isOpen"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"
+      />
+      <path
+        x-show="!$store.nav.isOpen"
+        fill-rule="evenodd"
+        d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
+      />
+    </svg>
   </button>
 
-  <div class="main-menu" 
+
+  <ul class="main-menu w-full flex-grow 
+      lg:flex lg:flex-wrap lg:items-center lg:w-auto 
+      -lg:flex-col -lg:w-full -lg:h-screen -lg:overflow-x-auto -lg:p-4 -lg:bg-white" 
+      role="menu"
       id="main-menu"
       :class="{ 'block': $store.nav.isOpen, 'hidden': !$store.nav.isOpen }"
       aria-labelledby="main-menu"
       x-show.transition="true">
 
-      <ul role="menu" class="main-menu__list">
-        {% for item in navigation.header %}
-        <li role="presentation">
-            <a href="{{ item.route }}" 
-               role="menuitem"
-               class="main-menu__list__link block {{ "ml-26" if not loop.first -}}"
-               {% if page.url == item.route %} aria-current="page"{% endif %}>
-                {{ item.name -}}
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
-  </div>
+      {% for item in navigation.header %}
+      <li role="presentation">
+          <a href="{{ item.route }}" 
+              role="menuitem"
+              class="main-menu__list__link block {{ "ml-26" if not loop.first -}}"
+              {% if page.url == item.route %} aria-current="page"{% endif %}>
+              {{ item.name -}}
+          </a>
+      </li>
+      {% endfor %}
+  </ul>
 </nav>
