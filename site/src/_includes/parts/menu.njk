@@ -1,20 +1,33 @@
-<nav class="mt-8">
-  <button class="main__menu__toggle"
+<nav class="mt-8"
+  x-data
+  @click.away="$store.nav.close()"
+  @keydown.escape="$store.nav.close()"
+  :class="{ '-lg:shadow-lg' : $store.nav.isOpen, '' : !$store.nav.isOpen}"
+  :aria-expanded="$store.nav.isOpen.toString()">
+
+  <button class="main-menu__toggle"
+      @click="$store.nav.toggle()"
+      :class="{ 'main-menu__toggle--open': $store.nav.isOpen }"
+      :aria-expanded="$store.nav.isOpen.toString()"
       aria-label="Menu modal toggle" 
       aria-haspopup="true"
-      aria-controls="main-menu"
-      aria-expanded="false">
+      aria-controls="main-menu">
       Toggle menu
       <span class="menu__burger"></span>
   </button>
 
-  <div class="main__menu" id="main-menu" aria-labelledby="main-menu">
-      <ul role="menu" class="site-nav">
+  <div class="main-menu" 
+      id="main-menu"
+      :class="{ 'block': $store.nav.isOpen, 'hidden': !$store.nav.isOpen }"
+      aria-labelledby="main-menu"
+      x-show.transition="true">
+
+      <ul role="menu" class="main-menu__list">
         {% for item in navigation.header %}
         <li role="presentation">
             <a href="{{ item.route }}" 
                role="menuitem"
-               class="site-nav__link block {{ "ml-26" if not loop.first -}}"
+               class="main-menu__list__link block {{ "ml-26" if not loop.first -}}"
                {% if page.url == item.route %} aria-current="page"{% endif %}>
                 {{ item.name -}}
             </a>
