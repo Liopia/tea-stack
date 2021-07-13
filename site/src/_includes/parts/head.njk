@@ -9,6 +9,10 @@
   <meta name="description" content="{{ meta_description }}">
   {% endif -%}
 
+  {%- if robots_noindex %}
+  <meta name="robots" content="noindex" />
+  {% endif -%}
+
   {% include 'parts/favicon.njk' %}
   {% block head %}{% endblock %}
 </head>
